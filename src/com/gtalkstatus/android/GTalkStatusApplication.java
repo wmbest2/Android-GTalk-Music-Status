@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.Context;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.util.Log;
 
 import org.jivesoftware.smack.XMPPException; 
 
@@ -65,7 +66,7 @@ public class GTalkStatusApplication extends Application {
     }
 
     public void startService(Context aContext, Intent aIntent) {
-
+		Log.d(LOG_NAME, "In Application.startService");
         Intent serviceIntent = new Intent(this, GTalkStatusUpdater.class);
         serviceIntent.setAction(aIntent.getAction());
         serviceIntent.putExtras(aIntent);
@@ -74,7 +75,7 @@ public class GTalkStatusApplication extends Application {
     }
 
     public void updateConnection() throws XMPPException {
-
+		Log.d(LOG_NAME, "In Application.updateConnection");
         if (mGTalkConnector != null) {
             mGTalkConnector.disconnect();
         }

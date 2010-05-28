@@ -24,14 +24,18 @@ import android.content.Intent;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.android.music.IMediaPlaybackService;
 
 public class GTalkStatusIntentReceiver extends BroadcastReceiver {
 
+	final static String LOG_NAME = "GTalkStatusIntentReciever";
+
     @Override
     public void onReceive(Context aContext, Intent aIntent) {
 
+		Log.d(LOG_NAME, "Received intent: " + aIntent.getAction());
         GTalkStatusApplication.getInstance().startService(aContext, aIntent);
     }
 }
